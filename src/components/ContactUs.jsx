@@ -2,12 +2,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Mail, MapPin, Phone, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Phone, Facebook, Instagram, Twitter,Youtube, Linkedin } from 'lucide-react';
 
 const ContactUs = () => {
   const socialLinks = [
-    { icon: <Facebook size={24} />, href: '#', label: 'Facebook' },
-    { icon: <Instagram size={24} />, href: '#', label: 'Instagram' },
+    { icon: <Facebook size={24} />, href: 'https://www.facebook.com/apnadigitalmktg', label: 'Facebook' },
+    { icon: <Instagram size={24} />, href: 'https://www.instagram.com/apnadigitalmktg', label: 'Instagram' },
     { icon: <Youtube size={24} />, href: 'https://www.youtube.com/@apnadigitalrecords', label: 'Youtube' },
     { icon: <Twitter size={24} />, href: 'https://x.com/apnadigitalmktg', label: 'Twitter' },
   ];
@@ -80,7 +80,7 @@ const ContactUs = () => {
                 <MapPin className="flex-shrink-0 h-6 w-6 text-primary mr-3 mt-1" />
                 <div>
                   <h4 className="text-lg font-semibold text-foreground">Location</h4>
-                  <p className="text-muted-foreground">India</p>
+                  <p className="text-muted-foreground">New Delhi, India</p>
                 </div>
               </div>
               <div>

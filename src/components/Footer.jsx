@@ -12,8 +12,8 @@ const Footer = () => {
   ];
 
   const socialIcons = [
-    { icon: <Facebook size={20} />, href: '#', label: 'Facebook' },
-    { icon: <Instagram size={20} />, href: 'https://www.instagram.com/manishapnadigitalmarketing', label: 'Instagram' },
+    { icon: <Facebook size={20} />, href: 'https://www.facebook.com/apnadigitalmktg', label: 'Facebook' },
+    { icon: <Instagram size={20} />, href: 'https://www.instagram.com/apnadigitalmktg', label: 'Instagram' },
     { icon: <Youtube size={20} />, href: 'https://www.youtube.com/@apnadigitalrecords', label: 'Youtube' },
     { icon: <Twitter size={20} />, href: 'https://x.com/apnadigitalmktg', label: 'Twitter' }
   ];
@@ -51,22 +51,38 @@ const Footer = () => {
                 {section.items.map(item => (
                   <li key={item}>
                     {section.title === 'Connect' ? (
-                      <a href={`mailto:${item}`} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+                      <a 
+                        href={`mailto:${item}`} 
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                      >
                         {item}
                       </a>
-                    ) : (
-                      <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
-                        {item}
-                      </a>
+                    ) : section.title === 'Company' ? (() => {
+                        const hrefMap = {
+                          'About Us': '#about-us',
+                          'Our Team': '#team',
+                          'Join as Creator': '#for-creators',
+                          'Contact Us': '#contact',
+                        };
+                        return (
+                          <a 
+                            href={hrefMap[item]} 
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                          >
+                            {item}
+                          </a>
+                        );
+                      })() : (
+                      <span className="text-sm text-muted-foreground">{item}</span>
                     )}
                   </li>
                 ))}
               </ul>
             </div>
-          ))}
+            ))}
            <div>
               <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase mb-4">Location</h3>
-              <p className="text-sm text-muted-foreground">India</p>
+              <p className="text-sm text-muted-foreground">New Delhi, India</p>
             </div>
         </div>
         

@@ -21,15 +21,15 @@ function App() {
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <Clients />
         <WhatWeDo />
         <WhoWeWorkWith />
         <OurProcess />
-        <AboutUs />
+        <Clients />
         <Services />
-        <Team />
         <ForCreators />
         <Testimonials />
+        <Team />
+        <AboutUs />
         <ContactUs />
       </main>
       <Footer />
