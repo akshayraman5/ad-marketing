@@ -1,0 +1,132 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 20% 6%; /* Deep dark blue/purple */
+    --foreground: 240 10% 95%; /* Light grey/white for text */
+    
+    --card: 250 20% 9%; /* Slightly lighter dark blue/purple for cards */
+    --card-foreground: 240 10% 95%;
+    
+    --popover: 250 20% 5%;
+    --popover-foreground: 240 10% 95%;
+    
+    --primary: 260 85% 70%; /* Vibrant purple */
+    --primary-foreground: 240 10% 98%;
+    
+    --secondary: 245 15% 15%; /* Darker shade for secondary elements */
+    --secondary-foreground: 240 10% 98%;
+    
+    --muted: 245 15% 25%;
+    --muted-foreground: 240 8% 70%;
+    
+    --accent: 270 70% 60%; /* Accent color - can be a brighter purple or blue */
+    --accent-foreground: 240 10% 98%;
+    
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 250 15% 20%; /* Border color for dark theme */
+    --input: 250 15% 20%;
+    --ring: 260 85% 75%; /* Ring color for focus states */
+    
+    --radius: 0.75rem; /* Slightly larger radius for modern feel */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-extrabold tracking-tight;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400;
+}
+
+.gradient-text-alt {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500;
+}
+
+.gradient-bg-hero {
+  @apply bg-gradient-to-br from-background via-indigo-950 to-purple-950;
+}
+
+.gradient-bg-cta {
+  @apply bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-700;
+}
+
+.glassmorphic-card {
+  @apply bg-card/60 backdrop-blur-lg border border-border/50 rounded-xl shadow-2xl;
+}
+
+.hero-glow-effect {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(128, 0, 128, 0.2) 0%, rgba(75, 0, 130, 0.1) 40%, transparent 70%);
+  transform: translate(-50%, -50%);
+  filter: blur(100px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.section-glow-effect {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(ellipse at center, rgba(106, 90, 205, 0.1) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.gradient-border-card {
+  position: relative;
+  border-radius: var(--radius);
+  padding: 1px; 
+}
+
+.gradient-border-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(168, 85, 247, 0.5), rgba(79, 70, 229, 0.5), rgba(59, 130, 246, 0.5));
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.gradient-border-card:hover::before {
+  opacity: 1;
+}
+
+.inner-card-content {
+  @apply bg-card h-full w-full rounded-[calc(var(--radius)-1px)] p-6;
+}
+
+.client-logo {
+  filter: grayscale(100%) contrast(0%) brightness(200%);
+  transition: filter 0.3s ease;
+}
+.client-logo:hover {
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+}
